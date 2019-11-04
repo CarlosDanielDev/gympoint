@@ -1,8 +1,15 @@
 import * as Yup from 'yup';
-import pt, { addMonths, parseISO, isBefore, startOfHour } from 'date-fns';
+import pt, {
+  addMonths,
+  parseISO,
+  isBefore,
+  startOfHour,
+  format
+} from 'date-fns';
 import Enrollments from '../models/Enrollments';
 import Students from '../models/Students';
 import Plans from '../models/Plans';
+import Mail from '../../lib/Mail';
 
 class EnrollmentController {
   async index(req, res) {
@@ -47,7 +54,14 @@ class EnrollmentController {
     const end_date = addMonths(parseISO(start_date), 3);
 
     const price = plan.price * plan.duration;
-
+    const formatedHourStart = format(
+      hourStart,
+      "'dia' dd 'de' MMMM', às' H:mm'h'",
+      { locale: pt }
+    );
+    const formatedHourEnd = format(end_date, "'dia' dd 'de' MMMM 'de' yyyy", {
+      locale: pt
+    });
     const enrollment = await Enrollments.create({
       student_id,
       plan_id,
@@ -55,7 +69,19 @@ class EnrollmentController {
       end_date,
       price
     });
-
+    await Mail.sendMail({
+      to: `${student.name} <${student.email}>`,
+      subject: 'Criação de Matricula',
+      template: 'wellcome',
+      context: {
+        student: student.name,
+        plan: plan.title,
+        start_date: formatedHourStart,
+        end_date: formatedHourEnd,
+        price
+      }
+    });
+    // console.log(`${student.name} <${student.email}>`);
     return res.json(enrollment);
   }
 }
