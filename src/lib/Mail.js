@@ -25,7 +25,7 @@ class Mail {
           layoutsDir: resolve(viewPath, 'layouts'),
           partialsDir: resolve(viewPath, 'partials'),
           defaultLayout: 'default',
-          extName: '.hbs'
+          extname: '.hbs'
         }),
         viewPath,
         extName: '.hbs'
@@ -33,10 +33,10 @@ class Mail {
     );
   }
 
-  sendMail(mesaage) {
+  sendMail(message) {
     return this.transporter.sendMail({
       ...mailConfig.default,
-      ...mesaage
+      ...message
     });
   }
 }

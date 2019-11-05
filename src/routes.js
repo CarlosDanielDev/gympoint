@@ -23,5 +23,6 @@ routes.delete('/plans/:plan_id', PlanController.delete);
 
 routes.get('/enrollments', EnrollmentController.index);
 routes.post('/enrollments', EnrollmentController.store);
+routes.put('/enrollments/:enrollment_id', EnrollmentController.update);
 
 export default routes;
