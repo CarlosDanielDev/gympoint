@@ -120,6 +120,17 @@ class EnrollmentController {
       price
     });
   }
+
+  async delete(req, res) {
+    const { enrollment_id } = req.params;
+    const enrollment = await Enrollments.findByPk(enrollment_id);
+    if (!enrollment) {
+      return res.status(400).json({ error: 'This enrollment does not exists' });
+    }
+    await enrollment.destroy();
+
+    return res.json();
+  }
 }
 
 export default new EnrollmentController();
