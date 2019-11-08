@@ -4,11 +4,15 @@ import StudentController from './app/controllers/StudentController';
 import SessionController from './app/controllers/SessionController';
 import PlanController from './app/controllers/PlanController';
 import EnrollmentController from './app/controllers/EnrollmentController';
+import CheckinController from './app/controllers/CheckinController';
 import auth from './app/middlewares/auth';
 
 const routes = new Router();
 
 routes.post('/sessions', SessionController.store);
+routes.get('/students/:student_id/checkin', CheckinController.index);
+routes.post('/students/:student_id/checkin', CheckinController.store);
+
 routes.use(auth);
 routes.post('/users', UserController.store);
 routes.put('/users', UserController.update);

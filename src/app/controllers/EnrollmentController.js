@@ -35,6 +35,14 @@ class EnrollmentController {
     if (!student) {
       return res.status(404).json({ error: 'Student not found!' });
     }
+    const enrollmentExists = await Enrollments.findOne({
+      where: { student_id }
+    });
+    if (enrollmentExists) {
+      return res
+        .status(400)
+        .json({ error: 'This Student is already enrolled' });
+    }
     const plan = await Plans.findByPk(plan_id);
 
     if (!plan) {
