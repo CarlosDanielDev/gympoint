@@ -9,11 +9,11 @@ module.exports = {
       },
       title: {
         type: Sequelize.STRING,
-        allowNull: false,
+        allowNull: false
       },
-      duration : {
+      duration: {
         type: Sequelize.INTEGER,
-        allowNull: false,
+        allowNull: false
       },
       price: {
         type: Sequelize.DECIMAL,
@@ -28,7 +28,6 @@ module.exports = {
         allowNull: false
       }
     });
-
   },
 
   down: queryInterface => {

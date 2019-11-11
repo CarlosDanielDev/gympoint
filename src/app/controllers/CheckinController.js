@@ -1,4 +1,5 @@
-import { subDays, startOfDay, endOfDay, getHours } from 'date-fns';
+import { subDays, startOfDay, endOfDay, getHours, isAfter } from 'date-fns';
+import { Op } from 'sequelize';
 import Checkin from '../schemas/Checkin';
 import Students from '../models/Students';
 import Enrollment from '../models/Enrollments';
@@ -28,6 +29,10 @@ class CheckinController {
     if (!enrollment) {
       return res.status(401).json({ error: 'This student is not enrolled' });
     }
+    // between enrollment ?
+    if (isAfter(new Date(), enrollment.end_date)) {
+      return res.status(401).json({ error: 'This enrollment is expired!' });
+    }
     // get current day
     const current_day = startOfDay(new Date());
 
@@ -46,38 +51,31 @@ class CheckinController {
         .status(400)
         .json({ error: 'You can only do 5 checkins in 7 days' });
     }
-    // case theres's no one checkin create
-    if (!countCheckins) {
-      const checkin = await Checkin.create({
-        student_id
-      });
 
-      return res.json(checkin);
-    }
     // get last checkin
     const [lastCheckin] = await Checkin.find({ student_id }).sort({
       updatedAt: 'desc'
     });
+    if (lastCheckin) {
+      // extract hour from the alst checkin
+      const { createdAt } = lastCheckin;
 
-    // extract hour from the alst checkin
-    const { createdAt } = lastCheckin;
+      // add 3 hours
+      const hourPermited = getHours(createdAt) + 12;
 
-    // add 3 hours
-    const hourPermited = getHours(createdAt) + 3;
+      // get current hour
+      const currentHour = getHours(new Date());
 
-    // get current hour
-    const currentHour = getHours(new Date());
+      // hours waiting to do a new Checkin
+      const hoursWait = hourPermited - currentHour;
 
-    // hours waiting to do a new Checkin
-    const hoursWait = hourPermited - currentHour;
-
-    // applying role
-    if (hourPermited > currentHour) {
-      return res
-        .status(401)
-        .json({ error: `You've to wait ${hoursWait} hours to next checkin` });
+      // applying role
+      if (hourPermited > currentHour) {
+        return res
+          .status(401)
+          .json({ error: `You've to wait ${hoursWait} hours to next checkin` });
+      }
     }
-
     // end :)
     const checkin = await Checkin.create({
       student_id
