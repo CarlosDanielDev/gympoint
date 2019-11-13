@@ -1,6 +1,6 @@
 # Gympoint
 
-Gympoint- Serviçõs de gerenciamento de academias.
+Gympoint- Serviços de gerenciamento de academias.
 
 ## Instalação
 
