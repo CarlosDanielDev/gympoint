@@ -1,5 +1,4 @@
 import { subDays, startOfDay, endOfDay, getHours, isAfter } from 'date-fns';
-import { Op } from 'sequelize';
 import Checkin from '../schemas/Checkin';
 import Students from '../models/Students';
 import Enrollment from '../models/Enrollments';
