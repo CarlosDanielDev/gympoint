@@ -1,3 +1,7 @@
+<h1 align="center">
+  <img alt="Gympoint" title="Gympoint" src="./logo.png" width="200px" />
+</h1>
+
 # Gympoint
 
 Gympoint- Serviços de gerenciamento de academias.
