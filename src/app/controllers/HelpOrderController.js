@@ -88,11 +88,10 @@ class HelpOrderController {
         .json({ error: 'This Help Order does not exists!' });
     }
 
-    const student = Student;
     const { question, answer, answer_at } = await help_order.update(req.body);
 
     await Queue.add(AnswerMail.key, {
-      student,
+      student: Student,
       question,
       created_at: createdAt,
       answer,
