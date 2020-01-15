@@ -8,7 +8,9 @@ import WellcomeMail from '../jobs/WellcomeMail';
 
 class EnrollmentController {
   async index(req, res) {
-    const enrollments = await Enrollments.findAll();
+    const enrollments = await Enrollments.findAll({
+      attributes: ['id', 'start_date', 'end_date', 'price', 'active']
+    });
     return res.json(enrollments);
   }
 

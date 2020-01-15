@@ -1,0 +1,780 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2020-01-08T14:02:43.381Z",
+  "__export_source": "insomnia.desktop.app:v7.0.6",
+  "resources": [
+    {
+      "_id": "req_ee83a917f5774c5db9f14cdf6251e112",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1578440947374,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578440947374,
+      "method": "DELETE",
+      "modified": 1578440973817,
+      "name": "Delete",
+      "parameters": [],
+      "parentId": "fld_2a305d8fa80145848635d6f2e46445a3",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/enrollments/{enroll_id}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_2a305d8fa80145848635d6f2e46445a3",
+      "created": 1578440689534,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578440689534,
+      "modified": 1578440689534,
+      "name": "Enrollment",
+      "parentId": "fld_9a169ea5ae514ef1b02e503a31b8babe",
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_9a169ea5ae514ef1b02e503a31b8babe",
+      "created": 1578437929143,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578437929143,
+      "modified": 1578437929143,
+      "name": "Auth",
+      "parentId": "wrk_b5f80ba41ffc40d693ea12da2b4d3972",
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_b5f80ba41ffc40d693ea12da2b4d3972",
+      "created": 1578435269753,
+      "description": "",
+      "modified": 1578435269753,
+      "name": "Gympoint",
+      "parentId": null,
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_101698769cdd46ff92f4bc532dd82750",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"plan_id\":3,\n\t\"start_date\":\"2020-01-02T13:00:00.000Z\"\n}"
+      },
+      "created": 1578440821542,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_09f0d29752d140828e44d419eee94d55",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578440821542,
+      "method": "PUT",
+      "modified": 1578441987406,
+      "name": "Update",
+      "parameters": [],
+      "parentId": "fld_2a305d8fa80145848635d6f2e46445a3",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/enrollments/1",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b96bfe48ca45496d88463cf248f0452f",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"student_id\":1,\n\t\"plan_id\":1,\n\t\"start_date\":\"2020-01-08T13:00:00.000Z\"\n}"
+      },
+      "created": 1578440734796,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_08374567a19d4a5fb40686ac6749d101",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578440734796,
+      "method": "POST",
+      "modified": 1578441356209,
+      "name": "Store",
+      "parameters": [],
+      "parentId": "fld_2a305d8fa80145848635d6f2e46445a3",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/enrollments",
+      "_type": "request"
+    },
+    {
+      "_id": "req_ff67488a10094d8095511e9b8e188f44",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1578440697332,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578440697332,
+      "method": "GET",
+      "modified": 1578440713366,
+      "name": "Index",
+      "parameters": [],
+      "parentId": "fld_2a305d8fa80145848635d6f2e46445a3",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/enrollments",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5a582474b2f0427e9ec60db4203b69c5",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1578440598678,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578440598678,
+      "method": "DELETE",
+      "modified": 1578440618658,
+      "name": "Delete",
+      "parameters": [],
+      "parentId": "fld_a53512d63991465eb7a3010435a507a6",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/plans/{plan_id}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_a53512d63991465eb7a3010435a507a6",
+      "created": 1578437850411,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578435748148.75,
+      "modified": 1578437971550,
+      "name": "Plan",
+      "parentId": "fld_9a169ea5ae514ef1b02e503a31b8babe",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_e0eb5ab24f9d46a4a4065b457959c510",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"title\":\"\",\n\t\"duration\":0,\n\t\"price\":\"\"\n}"
+      },
+      "created": 1578440514065,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_687227d46c4b463cab2084e5d5563544",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578440514065,
+      "method": "PUT",
+      "modified": 1578440540739,
+      "name": "Update",
+      "parameters": [],
+      "parentId": "fld_a53512d63991465eb7a3010435a507a6",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/plans/{plan_id}",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d5d083d21edb4e498444c79fb8ba21d3",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"title\":\"Diamond\",\n\t\"duration\":6,\n\t\"price\":\"89\"\n}"
+      },
+      "created": 1578440391059,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_9e7ed5fff6a04188ab8dfde863d2ae2e",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578440391059,
+      "method": "POST",
+      "modified": 1578441126728,
+      "name": "Store",
+      "parameters": [],
+      "parentId": "fld_a53512d63991465eb7a3010435a507a6",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/plans",
+      "_type": "request"
+    },
+    {
+      "_id": "req_45ddb737ff424a89b0d5bca66c0bc022",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1578437863026,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578437863026,
+      "method": "GET",
+      "modified": 1578437879362,
+      "name": "Index",
+      "parameters": [],
+      "parentId": "fld_a53512d63991465eb7a3010435a507a6",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/plans",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9fef9a99db12461fb3f348e05c93df21",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"answer\":\"Respondido\"\n}"
+      },
+      "created": 1578437665847,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_cc8437ff75214f4e80fb1cf15e01f4ed",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578437665847,
+      "method": "PUT",
+      "modified": 1578441442284,
+      "name": "Update",
+      "parameters": [],
+      "parentId": "fld_664e174631e04230abfbf709f79a5559",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/help-orders/1/answer",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_664e174631e04230abfbf709f79a5559",
+      "created": 1578437590272,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578435748098.75,
+      "modified": 1578437965775,
+      "name": "Help Order A.A",
+      "parentId": "fld_9a169ea5ae514ef1b02e503a31b8babe",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_3c307b7fac7244f5b914d1dfda853aa4",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1578437601887,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578437601887,
+      "method": "GET",
+      "modified": 1578437623000,
+      "name": "Index",
+      "parameters": [],
+      "parentId": "fld_664e174631e04230abfbf709f79a5559",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/help-orders",
+      "_type": "request"
+    },
+    {
+      "_id": "req_92a2b81d5236466886199b97a5fa9823",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\":\"\",\n\t\"email\":\"\",\n\t\"age\":\"\",\n\t\"weight\":\"\",\n\t\"height\":\"\"\n}"
+      },
+      "created": 1578436108943,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_2cdc1e193b974c44b53f71299c390447",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578436108943,
+      "method": "PUT",
+      "modified": 1578436172479,
+      "name": "Update",
+      "parameters": [],
+      "parentId": "fld_5cdf3b15c4d44ed09e4a3050b1052cde",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/students/{id}",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_5cdf3b15c4d44ed09e4a3050b1052cde",
+      "created": 1578435904074,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578435748048.75,
+      "modified": 1578437960947,
+      "name": "Student",
+      "parentId": "fld_9a169ea5ae514ef1b02e503a31b8babe",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_0fe20b37c5a1433bbc6cbc7b028d8af6",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\":\"Teste 01\",\n\t\"email\":\"teste01@teste.com\",\n\t\"age\":\"18\",\n\t\"weight\":\"68\",\n\t\"height\":\"1.70\"\n}"
+      },
+      "created": 1578435945602,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_0955ece8f070480fb57debfc28c53cbb",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578435945602,
+      "method": "POST",
+      "modified": 1578436070930,
+      "name": "Store",
+      "parameters": [],
+      "parentId": "fld_5cdf3b15c4d44ed09e4a3050b1052cde",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/students",
+      "_type": "request"
+    },
+    {
+      "_id": "req_010c3a1965ea4983816c8f4d4f3db7fb",
+      "authentication": {
+        "disabled": false,
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {},
+      "created": 1578485867987,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578485867987,
+      "method": "GET",
+      "modified": 1578488577762,
+      "name": "Index",
+      "parameters": [
+        {
+          "description": "",
+          "disabled": false,
+          "id": "pair_a171fca5a2b34cca992cfdfc79bb2101",
+          "name": "q",
+          "value": "Daniel"
+        }
+      ],
+      "parentId": "fld_548802a986be45c4b4fd27a0bde6aa6a",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/users",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_548802a986be45c4b4fd27a0bde6aa6a",
+      "created": 1578435279773,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578435747998.75,
+      "modified": 1578437948461,
+      "name": "User",
+      "parentId": "fld_9a169ea5ae514ef1b02e503a31b8babe",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_316b379c26c348eab122f060c9e794e1",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\":\"\",\n\t\"email\":\"\",\n\t\"oldPassword\":\"\",\n\t\"password\":\"\",\n\t\"confirmPassword\":\"\"\n}"
+      },
+      "created": 1578435749802,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_bf7e1b5bf2124de6aa970f1d08f99b55",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578435749802,
+      "method": "PUT",
+      "modified": 1578435876340,
+      "name": "Update",
+      "parameters": [],
+      "parentId": "fld_548802a986be45c4b4fd27a0bde6aa6a",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/users",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d64c0b833e0b4d29a50ed2f7d63481f8",
+      "authentication": {
+        "token": "{{ token  }}",
+        "type": "bearer"
+      },
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\":\"Matheus Henrique\",\n\t\"email\":\"matheus@gmail.com\",\n\t\"password\":\"123abc\"\n}"
+      },
+      "created": 1578435307512,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_92b0ca2a06d7479b8fdaea2736b04a70",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578435307512,
+      "method": "POST",
+      "modified": 1578488238450,
+      "name": "Store",
+      "parameters": [],
+      "parentId": "fld_548802a986be45c4b4fd27a0bde6aa6a",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/users",
+      "_type": "request"
+    },
+    {
+      "_id": "req_069dd6025120430f81f5601de87433db",
+      "authentication": {},
+      "body": {},
+      "created": 1578437375566,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578437375566,
+      "method": "GET",
+      "modified": 1578437390586,
+      "name": "Show",
+      "parameters": [],
+      "parentId": "fld_5515dc680b2e4d468f199c11b9b7d2a8",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/students/1/help-orders",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_5515dc680b2e4d468f199c11b9b7d2a8",
+      "created": 1578437299836,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578437850511,
+      "modified": 1578437921544,
+      "name": "Help Order S.A",
+      "parentId": "fld_4621db792a3549a2aa377da97531407b",
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_4621db792a3549a2aa377da97531407b",
+      "created": 1578437916515,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578437919672,
+      "modified": 1578437957890,
+      "name": "No Auth",
+      "parentId": "wrk_b5f80ba41ffc40d693ea12da2b4d3972",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_b611328466aa44bc88459f049e4925ea",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"question\":\"Teste Question\"\n}"
+      },
+      "created": 1578437314490,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_d9506695cfe6447da5442c03aee4a959",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578437314490,
+      "method": "POST",
+      "modified": 1578441409250,
+      "name": "Store",
+      "parameters": [],
+      "parentId": "fld_5515dc680b2e4d468f199c11b9b7d2a8",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/students/1/help-orders",
+      "_type": "request"
+    },
+    {
+      "_id": "req_631859d6afa24bfead2f9007ecb745f4",
+      "authentication": {},
+      "body": {},
+      "created": 1578437084666,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578437084666,
+      "method": "POST",
+      "modified": 1578437248448,
+      "name": "Store",
+      "parameters": [],
+      "parentId": "fld_da8a4b524194498f90cb762f578435fb",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/students/1/checkin",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_da8a4b524194498f90cb762f578435fb",
+      "created": 1578437010826,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578437850461,
+      "modified": 1578437919461,
+      "name": "Checkin",
+      "parentId": "fld_4621db792a3549a2aa377da97531407b",
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_a173eaf200fb4d9b86859e79baa16b23",
+      "authentication": {},
+      "body": {},
+      "created": 1578437019867,
+      "description": "",
+      "headers": [],
+      "isPrivate": false,
+      "metaSortKey": -1578437019867,
+      "method": "GET",
+      "modified": 1578437266285,
+      "name": "Index",
+      "parameters": [],
+      "parentId": "fld_da8a4b524194498f90cb762f578435fb",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/students/1/checkin",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9eb31cccc89f4e6296d9e3396687ddd1",
+      "authentication": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"email\":\"danphp7@gmail.com\",\n\t\"password\":\"123abc\"\n}"
+      },
+      "created": 1578435328482,
+      "description": "",
+      "headers": [
+        {
+          "id": "pair_e8cf99262d4c4b1cbf960e2edd065b70",
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "isPrivate": false,
+      "metaSortKey": -1578435328482,
+      "method": "POST",
+      "modified": 1578435789609,
+      "name": "Session",
+      "parameters": [],
+      "parentId": "fld_613acebca62244b383d4f30d9d9308a5",
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingFollowRedirects": "global",
+      "settingRebuildPath": true,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "url": "{{ gympoint  }}/sessions",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_613acebca62244b383d4f30d9d9308a5",
+      "created": 1578435321371,
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1578437850411,
+      "modified": 1578437941749,
+      "name": "Session",
+      "parentId": "fld_4621db792a3549a2aa377da97531407b",
+      "_type": "request_group"
+    },
+    {
+      "_id": "env_25080610cb5dff0dfd68390a2c6e44b1744f88a3",
+      "color": null,
+      "created": 1578435269805,
+      "data": {
+        "gympoint": "http://localhost:4000",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IkNhcmxvcyBEYW5pZWwiLCJlbWFpbCI6ImRhbnBocDdAZ21haWwuY29tIiwiaWF0IjoxNTc4NDM1NzkwLCJleHAiOjE1NzkwNDA1OTB9.GHyxOKDQc3Jvvl9MJ3AqgYpiz1kgaz4iFl59Ln9orbI"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "gympoint",
+          "token"
+        ]
+      },
+      "isPrivate": false,
+      "metaSortKey": 1578435269805,
+      "modified": 1578435800723,
+      "name": "Base Environment",
+      "parentId": "wrk_b5f80ba41ffc40d693ea12da2b4d3972",
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_25080610cb5dff0dfd68390a2c6e44b1744f88a3",
+      "cookies": [],
+      "created": 1578435269807,
+      "modified": 1578435269807,
+      "name": "Default Jar",
+      "parentId": "wrk_b5f80ba41ffc40d693ea12da2b4d3972",
+      "_type": "cookie_jar"
+    }
+  ]
+}

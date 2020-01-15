@@ -2,7 +2,7 @@ import * as Yup from 'yup';
 import Plans from '../models/Plans';
 
 class PlanController {
-  async index(req, res) {
+  async index(_, res) {
     const plans = await Plans.findAll();
     return res.json(plans);
   }

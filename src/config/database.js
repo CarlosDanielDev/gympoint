@@ -4,7 +4,7 @@ module.exports = {
   username: 'root',
   password: 'root',
   database: 'gympoint',
-  port: 3307,
+  port: 3306,
   define: {
     timestamps: true,
     underscored: true,
