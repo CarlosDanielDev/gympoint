@@ -4,9 +4,15 @@ import User from '../models/User';
 
 class UserController {
   async index(req, res) {
-    const { q } = req.query;
+    const { page = 1, q } = req.query;
     const users = await User.findAll(
-      q && { where: { name: { [Op.like]: `%${q}%` } } }
+      q
+        ? {
+            where: { name: { [Op.like]: `%${q}%` } },
+            limit: 15,
+            offset: (page - 1) * 15
+          }
+        : { limit: 15, offset: (page - 1) * 15 }
     );
     return res.json(users);
   }
