@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 import * as Yup from 'yup';
 import User from '../models/User';
+import Gyms from '../models/Gyms';
 import authConfig from '../../config/auth';
 
 class SessionController {
@@ -25,6 +26,8 @@ class SessionController {
     if (!(await user.checkPassword(password))) {
       return res.status(401).json({ error: 'Password does not match!' });
     }
+    const gym = await Gyms.findByPk(user.gym_id);
+
     const { id, name } = user;
     const { secret, expiresIn } = authConfig;
     return res.json({
@@ -33,8 +36,12 @@ class SessionController {
         name,
         email
       },
-
-      token: jwt.sign({ id, name, email }, secret, {
+      gym: {
+        gym_id: user.gym_id,
+        name: gym.name,
+        cnpj: gym.cnpj
+      },
+      token: jwt.sign({ id, name, email, gym_id: user.gym_id }, secret, {
         expiresIn
       })
     });

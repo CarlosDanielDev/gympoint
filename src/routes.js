@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import UserController from './app/controllers/UserController';
 import StudentController from './app/controllers/StudentController';
 import SessionController from './app/controllers/SessionController';
@@ -6,9 +7,15 @@ import PlanController from './app/controllers/PlanController';
 import EnrollmentController from './app/controllers/EnrollmentController';
 import CheckinController from './app/controllers/CheckinController';
 import HelpOrdersController from './app/controllers/HelpOrderController';
+import GymController from './app/controllers/GymController';
 import auth from './app/middlewares/auth';
 
 const routes = new Router();
+
+// gyms [ok]
+
+routes.get('/gyms', GymController.index);
+routes.post('/gyms', GymController.store);
 
 // session [ok]
 routes.post('/sessions', SessionController.store);
@@ -28,8 +35,14 @@ routes.use(auth);
 
 // require auth
 
+// gym [ok]
+
+routes.put('/gyms', GymController.update);
+routes.delete('/gyms', GymController.delete);
+
 // help-orders [ok]
 routes.get('/help-orders', HelpOrdersController.index);
+routes.delete('/help-orders/:help_order_id', HelpOrdersController.delete);
 routes.put('/help-orders/:help_order_id/answer', HelpOrdersController.update);
 
 // users [ok]
@@ -41,6 +54,7 @@ routes.get('/users', UserController.index);
 routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
 routes.get('/students', StudentController.index);
+routes.delete('/students/:student_id', StudentController.delete);
 
 // plans [ok]
 routes.get('/plans', PlanController.index);

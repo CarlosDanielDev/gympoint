@@ -11,7 +11,8 @@ class Students extends Model {
         weight: Sequelize.INTEGER,
         height: Sequelize.STRING,
         password_hash: Sequelize.STRING,
-        password: Sequelize.VIRTUAL
+        password: Sequelize.VIRTUAL,
+        gym_id: Sequelize.INTEGER
       },
       {
         sequelize
@@ -23,6 +24,10 @@ class Students extends Model {
       }
     });
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Gyms, { foreignKey: 'gym_id', as: 'gym' });
   }
 
   checkPassword(password) {

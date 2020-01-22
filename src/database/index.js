@@ -6,8 +6,9 @@ import Students from '../app/models/Students';
 import Plans from '../app/models/Plans';
 import Enrollments from '../app/models/Enrollments';
 import HelpOrders from '../app/models/HelpOrders';
+import Gyms from '../app/models/Gyms';
 
-const models = [User, Students, Plans, Enrollments, HelpOrders];
+const models = [User, Students, Plans, Enrollments, HelpOrders, Gyms];
 class Database {
   constructor() {
     this.init();

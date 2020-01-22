@@ -21,9 +21,42 @@ yarn && yarn dev
 ```
 
 ## Contribuição
+
 Pull requests são bem-vindas. Qualquer erro, ou sejestão de corrção sinta-se livre para clonar, commitar e mandar a PR.
 
-contato: ***<danphp7@gmail.com>***
+contato: **_<danphp7@gmail.com>_**
+
+## Include example
+
+```js
+import Students from '../models/Students';
+import User from '../models/User';
+
+const { page = 1, q } = req.query;
+
+const { gym_id } = await User.findOne({
+  where: { id: req.userId },
+  attributes: ['gym_id']
+});
+
+const query = q ? { name: { [Op.like]: `%${q}%` } } : {};
+
+const students = await Students.findAll({
+  where: { ...query, gym_id },
+  attributes: ['id', 'name', 'age', 'gym_id', 'createdAt', 'updatedAt'],
+  include: [
+    {
+      model: Gyms,
+      as: 'gym',
+      where: { id: gym_id },
+      attributes: ['name', 'cnpj']
+    }
+  ],
+  limit: 15,
+  offset: (page - 1) * 15
+});
+```
 
 ## License
+
 [MIT](https://choosealicense.com/licenses/mit/)

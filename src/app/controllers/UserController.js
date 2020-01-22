@@ -1,6 +1,7 @@
 import { Op } from 'sequelize';
 import * as Yup from 'yup';
 import User from '../models/User';
+import Gyms from '../models/Gyms';
 
 class UserController {
   async index(req, res) {
@@ -27,12 +28,21 @@ class UserController {
         .required(),
       password: Yup.string()
         .min(6)
+        .required(),
+      gym_id: Yup.number()
+        .integer()
         .required()
     });
 
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Validation Fails!!' });
     }
+    const gymExists = await Gyms.findByPk(req.body.gym_id);
+
+    if (!gymExists) {
+      return res.status(401).json({ error: 'This Gym does not exists!' });
+    }
+
     const userExists = await User.findOne({ where: { email: req.body.email } });
     if (userExists)
       return res.status(400).json({ error: 'User Already exists' });

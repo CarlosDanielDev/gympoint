@@ -2,8 +2,10 @@ import * as Yup from 'yup';
 import Plans from '../models/Plans';
 
 class PlanController {
-  async index(_, res) {
-    const plans = await Plans.findAll();
+  async index(req, res) {
+    const { gym_id } = req;
+
+    const plans = await Plans.findAll({ where: { gym_id } });
     return res.json(plans);
   }
 
@@ -15,9 +17,12 @@ class PlanController {
         .required('A duração é Obrigatória!'),
       price: Yup.number().required('O Preço é Obrigatório!')
     });
+
     if (!(await schema.isValid(req.body))) {
       return res.status(400).json({ error: 'Valdiations fails' });
     }
+    const { gym_id } = req;
+
     const planExists = await Plans.findOne({
       where: { title: req.body.title }
     });
@@ -25,12 +30,18 @@ class PlanController {
     if (planExists) {
       return res.status(400).json({ error: 'Plan Already exists!' });
     }
-    const { id, title, duration, price } = await Plans.create(req.body);
+
+    const { id, title, duration, price } = await Plans.create({
+      ...req.body,
+      gym_id
+    });
+
     return res.json({
       id,
       title,
       duration,
-      price
+      price,
+      gym_id
     });
   }
 
@@ -53,6 +64,12 @@ class PlanController {
     if (!plan) {
       return res.status(400).json({ error: 'This Plan does not exists!' });
     }
+
+    const { gym_id } = req;
+    if (plan.gym_id !== gym_id) {
+      return res.status(401).json({ error: 'You cannot update this Plan!' });
+    }
+
     const { id, title, duration, price } = await plan.update(req.body);
     return res.json({
       id,
@@ -66,6 +83,10 @@ class PlanController {
     const { plan_id } = req.params;
 
     const plan = await Plans.findByPk(plan_id);
+
+    if (plan.gym_id !== req.gym_id) {
+      return res.status(401).json({ error: 'You cannot delete this plan' });
+    }
 
     if (!plan) {
       return res.status(400).json({ error: 'This Plan does not exists!' });
