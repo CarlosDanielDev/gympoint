@@ -9,6 +9,16 @@ class PlanController {
     return res.json(plans);
   }
 
+  async show(req, res) {
+    const { gym_id } = req;
+
+    const plan = await Plans.findOne({
+      where: { id: req.params.plan_id, gym_id }
+    });
+
+    return res.json(plan);
+  }
+
   async store(req, res) {
     const schema = Yup.object().shape({
       title: Yup.string().required('O Titulo é Obrigatório!'),

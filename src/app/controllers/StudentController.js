@@ -11,13 +11,36 @@ class StudentController {
     const { gym_id } = req;
     const students = await Students.findAll({
       where: { ...query, gym_id },
-      attributes: ['id', 'name', 'age', 'gym_id', 'createdAt', 'updatedAt'],
+      attributes: [
+        'id',
+        'name',
+        'age',
+        'email',
+        'gym_id',
+        'createdAt',
+        'updatedAt'
+      ],
 
-      limit: 15,
-      offset: (page - 1) * 15
+      limit: 5,
+      offset: (page - 1) * 5
     });
 
     return res.json(students);
+  }
+
+  async show(req, res) {
+    const { student_id } = req.params;
+
+    if (!student_id) {
+      return res.status(401).json({ error: 'You need to provide student_id' });
+    }
+    const student = await Students.findByPk(student_id);
+
+    if (!student) {
+      return res.status(401).json({ error: 'This Student DOes not exists ' });
+    }
+
+    return res.json(student);
   }
 
   async store(req, res) {
@@ -76,7 +99,9 @@ class StudentController {
 
     if (email) {
       if (email === student.email) {
-        const studentExists = await Students.findOne({ where: { email } });
+        const studentExists = await Students.findOne({
+          where: { email, id: { $not: id } }
+        });
         if (studentExists) {
           return res.status(401).json({ error: 'Student Already exists!' });
         }

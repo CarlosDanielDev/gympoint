@@ -53,11 +53,13 @@ routes.get('/users', UserController.index);
 // students [ok]
 routes.post('/students', StudentController.store);
 routes.put('/students/:id', StudentController.update);
+routes.get('/students/:student_id', StudentController.show);
 routes.get('/students', StudentController.index);
 routes.delete('/students/:student_id', StudentController.delete);
 
 // plans [ok]
 routes.get('/plans', PlanController.index);
+routes.get('/plans/:plan_id', PlanController.show);
 routes.post('/plans', PlanController.store);
 routes.put('/plans/:plan_id', PlanController.update);
 routes.delete('/plans/:plan_id', PlanController.delete);
